@@ -1,24 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Register } from './Component/Register';
+import { Login } from './Component/login';
+import { Dashboard } from './Component/Dashboard';
+import axios from 'axios'
+import { User } from './Component/User';
+import PrivateRoute from './PrivateRoute';
+axios.defaults.baseURL = 'https://nice-rose-squirrel-hose.cyclic.app';
 
+axios.defaults.withCredentials = true;
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+       <Route path="/register" element={<Register/>}/> 
+       <Route path="/login" element={<Login/>}/> 
+       <Route element={<PrivateRoute />}>
+       <Route path="/Dashboard" element={<Dashboard/>}/> 
+         
+         <Route path='/user/:id' element={<User/>}>      
+            </Route>
+      
+
+       </Route>
+
+    </Routes>
+</BrowserRouter>
   );
 }
 
