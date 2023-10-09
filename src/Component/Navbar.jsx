@@ -23,7 +23,7 @@ export const Navbar = () => {
     const navigate=useNavigate();
 
     const handleLogout=async()=>{
-  const {data} =  await axios.post('/logout');
+  const {data} =  await axios.post('/logout',{}, {withCredentials: true});
         navigate('/login');
 
         localStorage.clear();
