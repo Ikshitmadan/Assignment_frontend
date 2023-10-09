@@ -23,7 +23,7 @@ const handleEdit=async()=>{
 
   try{
 
-    const {data}= await axios.patch(`http://localhost:8080/user/${user._id}`,{
+    const {data}= await axios.patch(`/user/${user._id}`,{
       name,email,phoneNumber
     });
 
