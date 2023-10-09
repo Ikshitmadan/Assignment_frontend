@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Register } from './Component/Register';
 import { Login } from './Component/login';
 import { Dashboard } from './Component/Dashboard';
@@ -16,6 +16,7 @@ function App() {
     <Routes>
        <Route path="/register" element={<Register/>}/> 
        <Route path="/login" element={<Login/>}/> 
+       <Route path='/' element={<Navigate replace to="/Dashboard"/>}/>
        <Route element={<PrivateRoute />}>
        <Route path="/Dashboard" element={<Dashboard/>}/> 
          
